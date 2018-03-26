@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<input type="text" id="sheetid" value="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"><input type="button" id="get" value="GET">
+<div id="data"></div>
+<script type="text/javascript"> 
+$(document).ready(function() {
+
+			$('#get').on('click', function(){
+			var sheetid = $('#sheetid').val();
+			$.get("https://sheets.googleapis.com/v4/spreadsheets/"+sheetid+"?includeGridData=true&ranges=A1%3AE&key=AIzaSyDxzuP68KECJO-KPDtnyoVtGwi91usKnkQ",
+				function (data) {	
+						$('#data').html(JSON.stringify(data));
+					});
+					
+					});
+});
+</script>
+</body></html>
